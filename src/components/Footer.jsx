@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "../asssets/icons/hungrezy_logo 1.svg";
+import { AiOutlineSend } from "react-icons/ai";
 
 function Footer() {
   return (
@@ -48,14 +49,14 @@ function Footer() {
         <div className="w-full md:w-1/4 text-center py-6">
           <h5 className="text-lg font-medium mb-4">Get in Touch</h5>
           <form>
-            <input
-              className="bg-gray-200 text-white p-2 rounded-lg w-full mb-4"
-              type="text"
-              placeholder="Feedback"
-            />
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full tracking-widest">
-              Submit
-            </button>
+            <div className="flex w-full bg-gray-200 items-center justify-between mb-4 ml-2 p-1 rounded-lg">
+              <input
+                className="h-full w-full focus:outline-none p-2 bg-gray-200 "
+                type="text"
+                placeholder="Feedback"
+              />
+              <AiOutlineSend className="text-3xl cursor-pointer text-gray-600" />
+            </div>
           </form>
         </div>
       </div>
