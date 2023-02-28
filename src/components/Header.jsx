@@ -3,11 +3,13 @@ import { Link, useNavigate } from "react-router-dom";
 import logo from "../asssets/icons/hungrezy_logo 1.svg";
 import cart from "../asssets/icons/basket-removebg-preview 1.svg";
 import { logout } from "../redux/authSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
-export default function Header() {
+export default function Header({ user }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { products } = useSelector((state) => state.cart);
+
   const logoutHandler = () => {
     dispatch(logout());
     navigate("/login");
@@ -73,8 +75,8 @@ export default function Header() {
                 className="h-6 sm:h-9 mt-1.5rem"
                 alt="Cart Items"
               />
-              <span className="ml-[-0.5rem] bg-red-600 text-white text-center rounded-full  w-5 h-5">
-                10
+              <span className="ml-[-0.5rem] bg-red-600 text-white text-center font-bold rounded-full  w-5 h-5">
+                {products?.length}
               </span>
             </div>
           </Link>
@@ -138,14 +140,7 @@ export default function Header() {
                 Categories
               </a>
             </li>
-            <li>
-              <a
-                href="#Recipies"
-                className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-              >
-                Recipies
-              </a>
-            </li>
+
             <li>
               <a
                 href="#contact"
@@ -161,6 +156,16 @@ export default function Header() {
               >
                 Services
               </a>
+            </li>
+            <li>
+              {user?.username === "Admin" && (
+                <Link
+                  to="/create"
+                  className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                >
+                  Add Prooduct
+                </Link>
+              )}
             </li>
             <li>
               <button

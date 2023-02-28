@@ -1,6 +1,5 @@
 import React from "react";
 import Categories from "./Categories";
-import FoodRecipies from "./FoodRecipies";
 import HeroSection from "./HeroSection";
 
 function Home() {
@@ -8,7 +7,6 @@ function Home() {
     <div className="h-auto bg-gradient-to-r from-rose-100 to-teal-100">
       <HeroSection />
       <Categories />
-      <FoodRecipies />
     </div>
   );
 }

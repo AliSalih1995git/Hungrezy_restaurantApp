@@ -20,7 +20,6 @@ function AddProduct() {
     setImage("");
   };
   const handleCreateProduct = async (e) => {
-    console.log("Create Product");
     e.preventDefault();
     try {
       const formData = new FormData();
